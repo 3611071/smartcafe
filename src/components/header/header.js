@@ -1,6 +1,9 @@
-
+import { useLocation } from "react-router-dom";
+import { windowLocationToRussian } from "../../shared/consts/windowLocationToRussian";
 
 const Header = (props) => {
+    const location = useLocation()
+
     return (
         <header>
             {/* "javascript:history.back()" */}
@@ -9,7 +12,7 @@ const Header = (props) => {
                     <path d="M8.25 15L1.25 8L8.25 1" stroke="#7B8794" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </a>
-            <p className="head">{props.title}</p>
+            <p className="head">{windowLocationToRussian[location.pathname.replace('/','')]}</p>
             <div className="head_right_sapce"></div>
         </header>
     );
